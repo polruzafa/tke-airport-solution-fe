@@ -107,7 +107,7 @@ a) Seguridad y roles
     -  Roles y accesos diferenciados (cirujano vs. responsable de
 planta)?
 
- Idealmente sería una autenticación con tokens tipo `JWT`. Este token contendrá también el _rol_ del usuario en el sistema y lo añadiremos a cada petición que hagamos al _backend_.
+Idealmente sería una autenticación con tokens tipo `JWT`. Este token contendrá también el _rol_ del usuario en el sistema y lo añadiremos a cada petición que hagamos al _backend_.
 
 Almacenaremos de forma segura el token en el _frontend_ e implemtaremos un sistema de renovación del token cuando sea necesario, además de redirigir el usuario a la pantalla de _login_ en el momento que el token sea inválido o haya expirado.
 
