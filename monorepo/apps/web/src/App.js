@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box, Grid } from "@mui/material";
 
-function App() {
+import Header from "./components/Header";
+import Room from "./components/Room";
+import { useRooms } from "./hooks/useRooms";
+import { useSignalStrength } from "./hooks/useSignalStrength";
+
+const App = () => {
+  const { loading, rooms } = useRooms();
+  const signalStrength = useSignalStrength();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box sx={{ flexGrow: 1 }}>
+      <Header
+        title="Dr. Pérez, gerente Planta 1"
+        signalStrength={signalStrength}
+      />
+
+      <Box sx={{ padding: 3 }}>
+        {loading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <Grid container spacing={3}>
+            {rooms.map(({ name, tasks, id }) => (
+              <Room key={id} name={name} tasks={tasks} />
+            ))}
+          </Grid>
+        )}
+      </Box>
+    </Box>
   );
-}
+};
 
 export default App;
