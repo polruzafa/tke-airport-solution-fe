@@ -24,7 +24,7 @@ internacionales.
 
 Pese a que **React-Native** nos permite tener versiones nativas y web de **una misma aplicación** en una sola base de código, en este caso las dos aplicaciones que queremos crear tienen casos de uso totalmente distintos y el usuario (rol) que las utilizaría tampoco es el mismo: 
 - el usuario/rol de *management* sólo usaría la aplicación web para la visualización de _dashboards_.
-- el usuario/rol de *profesional* sólo usaría la aplicación nativa para el registro de sus tareas.
+- el usuario/rol de *professional* sólo usaría la aplicación nativa para el registro de sus tareas.
 
 ### Propuesta
 
@@ -54,7 +54,7 @@ A partir del análisis anterior vemos que no tendría sentido tener una sola app
 
 - Dentro de `common/ui` tendríamos los componentes comunes que quisieramos reaprovechar. Hay que tener en cuenta que muchos componentes **no** serán comunes ya que React-Native usa su propia librería de componentes para pasar de RN a código nativo y web. Por lo tanto, aunque tengamos un componente `<Header />`, dicho componente tendría una versión web y otra nativa pero seguiría el mismo _design system_.
 
-- Los componentes de nuestras aplicaciones usarían los estilos (colores, fuentes, _assets_...) de las **guías de estilos** para cada uno de los hospitales (clientes) que tengamos. Con una buena configuración de los entornos de desarrollo y de nuestro sistema de _builds_ haremos que la aplicación desplegada sólo contenga los estilos del cliente al que entreguemos la build (menor _bundle size_, menor posibilidad de erores...)
+- Los componentes de nuestras aplicaciones usarían los estilos (colores, fuentes, _assets_...) de las **guías de estilos** para cada uno de los hospitales (clientes) que tengamos. Con una buena configuración de los entornos de desarrollo y de nuestro sistema de _builds_ haremos que la aplicación desplegada sólo contenga los estilos del cliente al que entreguemos la build (menor _bundle size_, menor posibilidad de errores...)
 
 - Dentro de `common/core` estarían los archivos comunes de la lógica de negocio. Además de constantes, archivos de _utils_ y demás.
 
